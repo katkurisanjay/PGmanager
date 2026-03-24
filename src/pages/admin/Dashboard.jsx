@@ -11,10 +11,9 @@ import './admin.css';
 const COLORS = ['#60a5fa', '#a78bfa', '#34d399', '#f472b6', '#fb923c'];
 
 export default function AdminDashboard() {
-  const { getRooms, getTotalBeds, getOccupiedBeds, getVacantBeds, getRevenue, getPendingDues, getTenants, getComplaints, getPayments, triggerBackendSeed } = useData();
+  const { getRooms, getOccupiedBeds, getVacantBeds, getRevenue, getPendingDues, getTenants, getComplaints, getPayments, triggerBackendSeed } = useData();
 
   const rooms = getRooms();
-  const tenants = getTenants();
   const complaints = getComplaints();
   const payments = getPayments();
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useData } from '../../context/DataContext';
 import NeonButton from '../../components/ui/NeonButton';
@@ -43,15 +43,13 @@ const Section = ({ id, title, subtitle, children }) => (
 );
 
 export default function LandingPage() {
-  const { pgName } = useParams();
-  const { getPgInfo, getRooms, getFacilities, getFoodMenu, getFeedback } = useData();
+  const { getPgInfo, getRooms, getFacilities, getFeedback } = useData();
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
   
   const pgInfo = getPgInfo();
   const rooms = getRooms();
   const facilities = getFacilities();
-  const foodMenu = getFoodMenu();
   const feedbacks = getFeedback().filter(f => f.rating >= 4).slice(0, 3); // Top 3 positive reviews
 
   // Group rooms by type to show pricing options

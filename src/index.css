@@ -308,6 +308,15 @@ select.form-input option {
   border-collapse: collapse;
 }
 
+@media (max-width: 768px) {
+  .data-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 .data-table th {
   padding: 14px 16px;
   text-align: left;
