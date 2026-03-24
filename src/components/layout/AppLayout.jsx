@@ -12,7 +12,7 @@ export default function AppLayout() {
   return (
     <div className="app-layout">
       <div className={`sidebar-wrapper ${mobileMenuOpen ? 'open' : ''}`}>
-        <Sidebar />
+        <Sidebar onClose={() => setMobileMenuOpen(false)} />
         <div className="sidebar-overlay" onClick={() => setMobileMenuOpen(false)} />
       </div>
 

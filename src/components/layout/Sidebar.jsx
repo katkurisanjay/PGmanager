@@ -32,7 +32,7 @@ const tenantLinks = [
   { to: '/tenant/feedback', icon: <HiStar />, label: 'Feedback' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ onClose }) {
   const { user, logout, isAdmin } = useAuth();
   const navigate = useNavigate();
   const links = isAdmin() ? adminLinks : tenantLinks;
@@ -66,6 +66,9 @@ export default function Sidebar() {
             to={link.to}
             end={link.end}
             className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+            onClick={() => {
+              if (onClose) onClose();
+            }}
           >
             <span className="sidebar-link-icon">{link.icon}</span>
             <span className="sidebar-link-label">{link.label}</span>
